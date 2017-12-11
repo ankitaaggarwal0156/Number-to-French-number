@@ -8,25 +8,26 @@ Using Finite State Automata to convert number to french number
 <li>import string</li>
 <li># Define a list of all vowels for convenience</li>
 <li>vowels = [’a’, ’e’, ’i’, ’o’, ’u’]</li>
-<li># Instantiate an FST object with some name
-<li>f = fst.FST(’devowelizer’)
-<li> # All we need is a single state ...
-<li>f.add_state(’1’)
-<li> # and this same state is the initial and the final state
-<li> f.initial_state = ’1’
-<li> f.set_final(’1’)
-<li> # Now, we need to add an arc for each letter; if the letter is a vowel
-<li> # then the transition outputs nothing but otherwise it outputs the same
-<li> # letter that it consumed.
-<li> for letter in string.ascii_lowercase:
-<li> if letter in vowels:
-<li> _ = f.add_arc(’1’, ’1’, (letter), ())
-<li>else:
-<li> _ = f.add_arc(’1’, ’1’, (letter), (letter))
-<li># Evaluate it on some example words
-<li> print ’’.join(f.transduce([’v’, ’o’, ’w’, ’e’, ’l’]))
-<li> print ’’.join(f.transduce(’e x c e p t i o n’.split()))
-<li> print ’’.join(f.transduce(’c o n s o n a n t’.split()))
+<li># Instantiate an FST object with some name</li>
+<li>f = fst.FST(’devowelizer’)</li>
+<li> # All we need is a single state ...</li>
+<li>f.add_state(’1’)</li>
+<li> # and this same state is the initial and the final state</li>
+<li> f.initial_state = ’1’</li>
+<li> f.set_final(’1’)</li>
+<li> # Now, we need to add an arc for each letter; if the letter is a vowel</li>
+<li> # then the transition outputs nothing but otherwise it outputs the same</li>
+<li> # letter that it consumed.</li>
+<li> for letter in string.ascii_lowercase:</li>
+<li> if letter in vowels:</li>
+<li> _ = f.add_arc(’1’, ’1’, (letter), ())</li>
+<li>else:</li>
+<li> _ = f.add_arc(’1’, ’1’, (letter), (letter))</li>
+<li># Evaluate it on some example words</li>
+<li> print ’’.join(f.transduce([’v’, ’o’, ’w’, ’e’, ’l’]))</li>
+<li> print ’’.join(f.transduce(’e x c e p t i o n’.split()))</li>
+<li> print ’’.join(f.transduce(’c o n s o n a n t’.split()))</li>
+</ol>
 
 ## Problem 1: Soundex 
 The Soundex algorithm is a phonetic algorithm commonly used by libraries and the Census Bureau to represent people’s names as they are pronounced in English. It has the advantage that name variations with minor spelling differences will map to the same representation, as long as they have the same pronunciation in English. Here is how the algorithm works:
