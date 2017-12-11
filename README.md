@@ -3,7 +3,6 @@ Using Finite State Automata to convert number to french number
 
 ### import the fst module | FST usage
 2 import fst
-
 4 # import the string module
 5 import string
 7 # Define a list of all vowels for convenience
@@ -37,15 +36,10 @@ Step 2: Remove all non-initial occurrences of the following letters: a, e, h, i,
 Step 3: Replace the remaining letters (except the first) with numbers: 
   
 • b, f, p, v → 1
-
 • c, g, j, k, q, s, x, z → 2 • d, t → 3
-
 •l→4
-
 • m, n → 5
-
 •r→6
-
 
 If two or more letters from the same number group were adjacent in the original name (i.e. before any letter removal is done), then only replace the first of those letters with the corresponding number and ignore the others.
 
